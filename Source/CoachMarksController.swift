@@ -100,6 +100,16 @@ public class CoachMarksController: UIViewController, OverlayViewDelegate {
         }
     }
 
+    public var cutoutPathShouldPassTouches: Bool {
+        get {
+            return overlayView.cutoutPathShouldPassTouches
+        }
+
+        set {
+            overlayView.cutoutPathShouldPassTouches = newValue
+        }
+    }
+
     /// The view holding the "Skip" control
     public var skipView: CoachMarkSkipView? {
         // Again, we test the protocol/UIView combination
