@@ -60,6 +60,8 @@ internal class OverlayView: UIView {
         }
     }
 
+    var cutoutPathShouldPassTouches = false
+
     /// Used to temporarily disable the tap, for a given coachmark.
     var disableOverlayTap: Bool = false
 
@@ -214,7 +216,7 @@ internal class OverlayView: UIView {
     override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
         let hitView = super.hitTest(point, withEvent: event)
 
-        if hitView == self {
+        if cutoutPathShouldPassTouches && hitView == self {
             guard let cutoutPath = self.cutoutPath else {
                 return hitView
             }
